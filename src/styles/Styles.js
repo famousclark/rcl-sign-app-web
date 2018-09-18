@@ -1,28 +1,38 @@
 /* @flow */
 
 // React Native
-import { StyleSheet } from 'react-native';
+import { style } from 'react-stylesheet';
 
-const GlobalStyles: Object = StyleSheet.create({
-  container: {
+//const GlobalStyles: Object = //StyleSheet.create({
+
+export let globalContainer = style('span', {
+  base: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    backgroundColor: '#fff'
+  }
 });
 
+export let globalWelcome = style('span',
+{
+  base:{
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10
+  }
+});
+
+export let globalInstructions = style('span',
+{
+  base: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5
+  }
+});
+/*
 export const BannerStyles: Object = StyleSheet.create({
   bannerContainer: {
     flexDirection: 'row',
@@ -299,7 +309,7 @@ export const IntroStyles: Object = StyleSheet.create({
     fontSize: 16,
     padding: 10,
   }
+*/
+//})
 
-})
-
-export default GlobalStyles;
+//export default GlobalStyles;

@@ -7,14 +7,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// Redux
-import {createStore, applyMiddleware} from 'redux';
-import {configureStore, sagaMiddleWare} from './store/ConfigureStore';
-import {Provider} from 'react-redux';
-
-// Sagas
-import rootSaga from './middleware/Saga.js';
-
+// Styles
 import './index.css';
 
 import App from './App';
