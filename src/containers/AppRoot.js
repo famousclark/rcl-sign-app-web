@@ -19,7 +19,7 @@ import { bindActionCreators } from 'redux';
 import * as AppActions from '../actions/Actions';
 
 // Styles
-import GlobalStyles from '../styles/Styles';
+import {GlobalStyles} from '../styles/Styles';
 
 // Components
 import Banner from '../components/Banner';

@@ -5,35 +5,29 @@ import { style } from 'react-stylesheet';
 
 //const GlobalStyles: Object = //StyleSheet.create({
 
-export let globalContainer = style('span', {
-  base: {
+export let GlobalStyles = style('span', {
+  container: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff'
-  }
-});
+  },
 
-export let globalWelcome = style('span',
-{
-  base:{
+  welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10
-  }
-});
+  },
 
-export let globalInstructions = style('span',
-{
-  base: {
+  instructions: {
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5
   }
 });
-/*
-export const BannerStyles: Object = StyleSheet.create({
+
+export let BannerStyles = style('span', {
   bannerContainer: {
     flexDirection: 'row',
     flex: 0.10,
@@ -67,7 +61,7 @@ export const BannerStyles: Object = StyleSheet.create({
   }
 });
 
-export const ModalStyles: Object = StyleSheet.create({
+export let ModalStyles = style('span', {
   letterPickerModal: {
     justifyContent: 'center',
   },
@@ -85,13 +79,13 @@ export const ModalStyles: Object = StyleSheet.create({
   },
 });
 
-export const PickerStyles: Object = StyleSheet.create({
+export let PickerStyles = style('span', {
   languagePicker: {
     flex: 1,
   }
 });
 
-export const NavigationStyles: Object = StyleSheet.create({
+export let NavigationStyles = style('span', {
   letterPicker: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -119,7 +113,7 @@ export const NavigationStyles: Object = StyleSheet.create({
   }
 });
 
-export const ButtonStyles: Object = StyleSheet.create({
+export let ButtonStyles = style('span', {
   buttonBackground: {
     backgroundColor: '#5ec44e',
     flex: 1,
@@ -223,7 +217,7 @@ export const ButtonStyles: Object = StyleSheet.create({
   }
 });
 
-export const DefinitionListStyles: Object = StyleSheet.create({
+export let DefinitionListStyles = style('span', {
   definitionListContainer: {
     alignSelf: 'stretch',
     flex: 0.75,
@@ -231,7 +225,7 @@ export const DefinitionListStyles: Object = StyleSheet.create({
   }
 });
 
-export const DefinitionDisplayStyles: Object = StyleSheet.create({
+export let DefinitionDisplayStyles = style('span', {
   definition: {
     color: "#484848",
     margin: 10,
@@ -245,7 +239,7 @@ export const DefinitionDisplayStyles: Object = StyleSheet.create({
   }
 });
 
-export const VideoStyles: Object = StyleSheet.create({
+export let VideoStyles = style('span', {
   videoPlayer: {
     flex: 1,
     backgroundColor: '#000',
@@ -273,7 +267,7 @@ export const VideoStyles: Object = StyleSheet.create({
   }
 })
 
-export const IntroStyles: Object = StyleSheet.create({
+export let IntroStyles = style('span', {
   introView: {
     justifyContent: 'center',
     backgroundColor: '#fff',
@@ -309,7 +303,7 @@ export const IntroStyles: Object = StyleSheet.create({
     fontSize: 16,
     padding: 10,
   }
-*/
-//})
+
+})
 
 //export default GlobalStyles;

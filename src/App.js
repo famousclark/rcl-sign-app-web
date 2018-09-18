@@ -11,7 +11,7 @@ import {Provider} from 'react-redux';
 import rootSaga from './middleware/Saga.js';
 
 // Styles
-import * as ux from './styles/Styles';
+import {GlobalStyles} from './styles/Styles';
 
 // Containers
 import AppRoot from './containers/AppRoot';
@@ -23,9 +23,9 @@ sagaMiddleWare.run(rootSaga);
 class App extends Component {
   render() {
 
-    /*const original = (
+    const original = (
       <div className="App">
-      <ux.globalContainer>
+      <GlobalStyles variant = {{container: true }}>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
           <h1 className="App-title">Welcome to React</h1>
@@ -34,9 +34,9 @@ class App extends Component {
           To get started, edit { <code>src/App.js</code> }
           and save to reload.
         </p>
-      </ux.globalContainer>
+      </GlobalStyles>
     </div>
-  );*/
+  );
 
     return (
       <Provider store={store}>
