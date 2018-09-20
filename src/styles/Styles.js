@@ -217,7 +217,7 @@ export let ButtonStyles = style('span', {
   }
 });
 
-export let DefinitionListStyles = style('span', {
+export let DefinitionListStyles = style('div', {
   definitionListContainer: {
     alignSelf: 'stretch',
     flex: 0.75,
@@ -225,7 +225,7 @@ export let DefinitionListStyles = style('span', {
   }
 });
 
-export let DefinitionDisplayStyles = style('span', {
+export let DefinitionDisplayStyles = style('p', {
   definition: {
     color: "#484848",
     margin: 10,
