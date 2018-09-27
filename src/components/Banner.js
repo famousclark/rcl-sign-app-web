@@ -20,27 +20,21 @@ import IntroScreen  from './IntroScreen';
 const Banner = (props: Object) => {
   let { language, setLanguage, introText, showIntro, toggleIntro } = props;
   return(
-    <div style={BannerStyles.bannerContainer}>
-      <div onPress={() => { setLanguage('fr') } }>
-        <div style={BannerStyles.bannerImageContainer}>
-          <img resizeMode={'contain'} style={ language === 'fr' ? BannerStyles.selectedLanguage : BannerStyles.bannerImage } src={require('../images/fr_flag.png')}/>
-        </div>
+    <div class="ui medium images">
+      <div class="ui image" onPress={() => { setLanguage('fr') } }>
+        <img src={require('../images/fr_flag.png')}/>
       </div>
-      <div style={BannerStyles.bannerImageContainer}>
-        <div onPress={toggleIntro}>
-          <img resizeMode={'contain'} style={BannerStyles.bannerImageHome} src={require('../images/home_logo.png')}/>
-          <IntroScreen
-            introText={introText}
-            language={language}
-            visible={showIntro}
-            onClose={toggleIntro}
-          />
-        </div>
+      <div class="ui image" onPress={toggleIntro}>
+        <img src={require('../images/home_logo.png')}/>
+        <IntroScreen
+          introText={introText}
+          language={language}
+          visible={showIntro}
+          onClose={toggleIntro}
+        />
       </div>
-      <div onPress={() => { setLanguage('en') } }>
-        <div style={BannerStyles.bannerImageContainer}>
-          <img resizeMode={'contain'} style={ language === 'en' ? BannerStyles.selectedLanguage : BannerStyles.bannerImage } src={require('../images/us_flag.png')}/>
-        </div>
+      <div class="ui image" onPress={() => { setLanguage('en') } }>
+        <img src={require('../images/us_flag.png')}/>
       </div>
     </div>
   );

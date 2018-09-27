@@ -126,9 +126,7 @@ class AppRoot extends Component {
     const { showIntroScreen } = this.state;
     // All of our 'dumb' components will be rendered as children here.
     return(
-      <GlobalStyles
-        variant={{container: true}}
-        >
+      <div>
         <Banner
           language={language}
           setLanguage={this.setAppLanguage}
@@ -158,7 +156,7 @@ class AppRoot extends Component {
           toggleModal={toggleVideoModalAction}
           layoutAspect={layoutAspect}
         />
-    </GlobalStyles>
+    </div>
     );
   }
 }
