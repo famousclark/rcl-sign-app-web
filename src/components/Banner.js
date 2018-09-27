@@ -21,27 +21,27 @@ const Banner = (props: Object) => {
   let { language, setLanguage, introText, showIntro, toggleIntro } = props;
   return(
     <div style={BannerStyles.bannerContainer}>
-      <button onPress={() => { setLanguage('fr') } }>
+      <div onPress={() => { setLanguage('fr') } }>
         <div style={BannerStyles.bannerImageContainer}>
-          <img resizeMode={'contain'} style={ language === 'fr' ? BannerStyles.selectedLanguage : BannerStyles.bannerImage } source={require('../images/fr_flag.png')}/>
+          <img resizeMode={'contain'} style={ language === 'fr' ? BannerStyles.selectedLanguage : BannerStyles.bannerImage } src={require('../images/fr_flag.png')}/>
         </div>
-      </button>
+      </div>
       <div style={BannerStyles.bannerImageContainer}>
-        <button onPress={toggleIntro}>
-          <img resizeMode={'contain'} style={BannerStyles.bannerImageHome} source={require('../images/home_logo.png')}/>
+        <div onPress={toggleIntro}>
+          <img resizeMode={'contain'} style={BannerStyles.bannerImageHome} src={require('../images/home_logo.png')}/>
           <IntroScreen
             introText={introText}
             language={language}
             visible={showIntro}
             onClose={toggleIntro}
           />
-        </button>
-      </div>
-      <button onPress={() => { setLanguage('en') } }>
-        <div style={BannerStyles.bannerImageContainer}>
-          <img resizeMode={'contain'} style={ language === 'en' ? BannerStyles.selectedLanguage : BannerStyles.bannerImage } source={require('../images/us_flag.png')}/>
         </div>
-      </button>
+      </div>
+      <div onPress={() => { setLanguage('en') } }>
+        <div style={BannerStyles.bannerImageContainer}>
+          <img resizeMode={'contain'} style={ language === 'en' ? BannerStyles.selectedLanguage : BannerStyles.bannerImage } src={require('../images/us_flag.png')}/>
+        </div>
+      </div>
     </div>
   );
 }

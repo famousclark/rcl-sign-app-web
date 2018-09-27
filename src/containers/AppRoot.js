@@ -65,6 +65,7 @@ class AppRoot extends Component {
       letter: 'a',
       range: 'a-g',
     }
+
     this.props.loadDefinitionsAction(definitionQuery);
   }
 
@@ -127,7 +128,6 @@ class AppRoot extends Component {
     return(
       <GlobalStyles
         variant={{container: true}}
-        onLayout={this.handleLayoutChange}
         >
         <Banner
           language={language}
