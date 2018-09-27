@@ -113,7 +113,7 @@ export let NavigationStyles = style('span', {
   }
 });
 
-export let ButtonStyles = style('span', {
+export let ButtonStyles = style('button', {
   buttonBackground: {
     backgroundColor: '#5ec44e',
     flex: 1,

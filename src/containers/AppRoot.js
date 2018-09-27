@@ -4,13 +4,14 @@
 import React, { Component } from 'react';
 
 // React Native
+/*
 import {
   Text,
   View,
   Platform,
   UIManager,
   LayoutAnimation } from 'react-native';
-
+*/
 // Redux
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -27,17 +28,19 @@ import Navigation from '../components/Navigation';
 import DefinitionList from '../components/DefinitionList';
 import VideoModal from '../components/VideoModal';
 
+/*
 if (Platform.OS === 'android') {
   UIManager.setLayoutAnimationEnabledExperimental(true)
 }
+*/
 const fadeInOut = {
   duration: 300,
     create: {
-      type: LayoutAnimation.Types.linear,
-      property: LayoutAnimation.Properties.opacity,
+      //type: LayoutAnimation.Types.linear,
+      //property: LayoutAnimation.Properties.opacity,
     },
     update: {
-      type: LayoutAnimation.Types.easeInEaseOut,
+      //type: LayoutAnimation.Types.easeInEaseOut,
     },
 };
 
@@ -67,7 +70,7 @@ class AppRoot extends Component {
 
   componentWillReceiveProps(nextProps: Object): void {
     if (nextProps.layoutAspect !== this.props.layoutAspect) {
-      LayoutAnimation.configureNext(fadeInOut);
+      //LayoutAnimation.configureNext(fadeInOut);
     }
   }
 
@@ -122,8 +125,8 @@ class AppRoot extends Component {
     const { showIntroScreen } = this.state;
     // All of our 'dumb' components will be rendered as children here.
     return(
-      <View
-        style={GlobalStyles.container}
+      <GlobalStyles
+        variant={{container: true}}
         onLayout={this.handleLayoutChange}
         >
         <Banner
@@ -155,7 +158,7 @@ class AppRoot extends Component {
           toggleModal={toggleVideoModalAction}
           layoutAspect={layoutAspect}
         />
-      </View>
+    </GlobalStyles>
     );
   }
 }

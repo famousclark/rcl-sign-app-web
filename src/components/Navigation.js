@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 
 // React Native
+/*
 import {
   Text, //text
   View, //div
@@ -13,6 +14,7 @@ import {
   TextInput, //form input
   Keyboard // allows you to listen for native events and react to them, as well as make changes to the keyboard, like dismissing it.
 } from 'react-native';
+*/
 
 // Constants
 import {Alphabet} from '../utils/Constants';
@@ -20,7 +22,7 @@ import {Alphabet} from '../utils/Constants';
 // Stylesheets
 import {PickerStyles, NavigationStyles, ButtonStyles, ModalStyles} from '../styles/Styles';
 
-const Item = Picker.Item;
+//const Item = Picker.Item;
 
 export default class Navigation extends Component {
   state: Object = {
@@ -43,8 +45,8 @@ export default class Navigation extends Component {
     (this : any).loadNewDefinitions = this.loadNewDefinitions.bind(this);
     (this : any).onKeyboardHide = this.onKeyboardHide.bind(this);
     (this : any).onKeyboardShow = this.onKeyboardShow.bind(this);
-    (this : any).keyboardHideListener = Keyboard.addListener('keyboardDidHide', this.onKeyboardHide);
-    (this : any).keyboardShowListener = Keyboard.addListener('keyboardDidShow', this.onKeyboardShow);
+    //(this : any).keyboardHideListener = Keyboard.addListener('keyboardDidHide', this.onKeyboardHide);
+    //(this : any).keyboardShowListener = Keyboard.addListener('keyboardDidShow', this.onKeyboardShow);
   }
 
   handleLetterChange(selectedLetter : string) {
@@ -142,51 +144,83 @@ export default class Navigation extends Component {
       return 'Search ...';
     }
 
-    return (<View style={NavigationStyles.navContainer}>
-      <TextInput style={NavigationStyles.searchBar} placeholder={searchMessage()} placeholderColor='#000' onFocus={() => this.handleSearchFocus(true)} underlineColorAndroid='#4286f4' ref={(ref) => this.textInput = ref} onChangeText={this.handleSearchTextChange} onSubmitEditing={this.handleSearchSubmit}/>
-      <View style={NavigationStyles.letterPicker}>
-        <Modal animationType={"fade"} transparent={false} style={ModalStyles.letterPickerModal} visible={this.state.displayModal} onRequestClose={this.handleModalToggle}>
-          <TouchableOpacity onPress={this.handleModalToggle} style={ButtonStyles.backButton}>
-            <Text style={ButtonStyles.backButtonTextInverted}>
+    return (<NavigationStyles variant={{
+        navContainer: true
+      }}>
+      <NavigationStyles variant={{
+          searchBar: true
+        }} placeholder={searchMessage()} placeholderColor='#000' onFocus={() => this.handleSearchFocus(true)} underlineColorAndroid='#4286f4' ref={(ref) => this.textInput = ref} onChangeText={this.handleSearchTextChange} onSubmitEditing={this.handleSearchSubmit}/>
+      <NavigationStyles variant={{
+          letterPicker: true
+        }}>
+        <ModalStyles animationType={"fade"} transparent={false} variant={{
+            letterPickerModal: true
+          }} visible={this.state.displayModal} onRequestClose={this.handleModalToggle}>
+          <ButtonStyles onPress={this.handleModalToggle} variant={{
+              backButton: true
+            }}>
+            <ButtonStyles variant={{
+                backButtonTextInverted: true
+              }}>
               {
                 language === 'en'
                   ? 'back'
                   : 'retour'
               }
-            </Text>
-          </TouchableOpacity>
-          <Text style={{
+            </ButtonStyles>
+          </ButtonStyles>
+          <p style={{
               marginTop: 20,
               alignSelf: 'center',
               flex: 0.15
-            }}>{promptMessage}</Text>
-          <Picker style={PickerStyles.languagePicker} selectedValue={currentLetter} onValueChange={(letter) => this.handleLetterChange(letter)}>
+            }}>{promptMessage}</p>
+          <PickerStyles variant={{
+              languagePicker: true
+            }} selectedValue={currentLetter} onValueChange={(letter) => this.handleLetterChange(letter)}>
             {
               Alphabet.map((letter, index) => {
-                return <Item key={index} label={letter.toUpperCase()} value={letter}/>
+                return <div key={index} label={letter.toUpperCase()} value={letter}/>
               })
             }
-          </Picker>
-        </Modal>
-        <TouchableOpacity onPress={this.handleModalToggle} style={searchFocused || searchResults || isSearching
-            ? ButtonStyles.buttonBackgroundBlurred
-            : ButtonStyles.buttonBackground}>
-          <Text style={searchFocused || searchResults || isSearching
-              ? ButtonStyles.buttonText
-              : ButtonStyles.selectedRangeButtonText}>{title}</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={NavigationStyles.letterRange}>
+          </PickerStyles>
+        </ModalStyles>
+        <ButtonStyles onPress={this.handleModalToggle} variant={searchFocused || searchResults || isSearching
+            ? {
+              buttonBackgroundBlurred: true
+            }
+            : {
+              buttonBackground: true
+            }}>
+          <ButtonStyles variant={searchFocused || searchResults || isSearching
+              ? {
+                buttonText: true
+              }
+              : {
+                selectedRangeButtonText: true
+              }}>{title}</ButtonStyles>
+        </ButtonStyles>
+      </NavigationStyles>
+      <NavigationStyles variant={{
+          letterRange: true
+        }}>
         {
-          this.letterRange.map((range, index) => <TouchableOpacity key={index} style={index !== currentIndex || searchFocused || searchResults || isSearching
-              ? ButtonStyles.letterRangeButton
-              : ButtonStyles.selectedRangeButton} onPress={() => this.handleRangeSelect(range, index)}>
-            <Text style={index !== currentIndex || searchFocused || searchResults || isSearching
-                ? ButtonStyles.buttonText
-                : ButtonStyles.selectedRangeButtonText}>{range}</Text>
-          </TouchableOpacity>)
+          this.letterRange.map((range, index) => <ButtonStyles key={index} variant={index !== currentIndex || searchFocused || searchResults || isSearching
+              ? {
+                letterRangeButton: true
+              }
+              : {
+                selectedRangeButton: true
+              }} onPress={() => this.handleRangeSelect(range, index)}>
+            <ButtonStyles variant={index !== currentIndex || searchFocused || searchResults || isSearching
+                ? {
+                  buttonText: true
+                }
+                : {
+                  selectedRangeButtonText: true
+                }}>{range}</ButtonStyles>
+          </ButtonStyles>)
         }
-      </View>
-    </View>);
+      </NavigationStyles>
+    </NavigationStyles>);
   }
 }

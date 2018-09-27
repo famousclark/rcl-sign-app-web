@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 
 // React Native
+/*
 import {
   Text,
   View,
@@ -12,7 +13,7 @@ import {
   TouchableOpacity,
   Linking,
 } from 'react-native';
-
+*/
 // Styles
 import { IntroStyles, DefinitionDisplayStyles, ButtonStyles } from '../styles/Styles';
 
@@ -25,37 +26,47 @@ const IntroScreen = (props: Object) => {
   } else {
     intro = introText.fr;
   }
+  /*
   let listSource = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2});
+  */
   let mailto = 'mailto:' + intro.contact.link.address + '?subject=LSF-ASL App Feedback';
   return (
-    <Modal
+    <div
       animationType={"fade"}
       transparent={false}
       visible={visible}
       onRequestClose={onClose}
       >
-      <View style={IntroStyles.introView}>
-        <View style={IntroStyles.headerView}>
-          <TouchableOpacity
+      <IntroStyles variant={{ introView: true }}>
+        <IntroStyles variant={{headerView: true }}>
+          <ButtonStyles
             onPress={onClose}
-            style={ButtonStyles.introBackButton}>
-            <Text style={ButtonStyles.introBackButtonText}>
+            variant={{introBackButton: true }}>
+            <p style={ButtonStyles.introBackButtonText}>
               {language === 'en' ? 'back' : 'retour'}
-            </Text>
-          </TouchableOpacity>
-          <Text style={IntroStyles.header}>{intro.intro}</Text>
-        </View>
+            </p>
+          </ButtonStyles>
+          <p style={IntroStyles.header}>{intro.intro}</p>
+        </IntroStyles>
+        <div style={IntroStyles.instructions} >
+        {(intro.instructions).map((data) => {
+          <p style={DefinitionDisplayStyles.definition}>{data}</p>
+        })}
+        </div>
+        {/*
         <ListView
           style={IntroStyles.instructions}
           dataSource={listSource.cloneWithRows(intro.instructions)}
           renderRow={(data) =>
-            <Text style={DefinitionDisplayStyles.definition}>{data}</Text>
+            <p style={DefinitionDisplayStyles.definition}>{data}</p>
           }
         />
-        <View style={IntroStyles.contactView}>
-          <Text style={IntroStyles.contactText}>{intro.contact.message}</Text>
-          <Text style={IntroStyles.contactText}>{intro.contact.link.message}</Text>
-          <TouchableOpacity onPress={() => Linking.canOpenURL(mailto).then(
+        */}
+        <IntroStyles variant={{ contactView: true }}>
+          <IntroStyles variant={{ contactText: true }}>{intro.contact.message}</IntroStyles>
+          <IntroStyles variant={{ contactText: true }}>{intro.contact.link.message}</IntroStyles>
+          {/*
+          <ButtonStyles onPress={() => Linking.canOpenURL(mailto).then(
             supported => {
               if (!supported) {
                 console.log("can't open " + intro.contact.link.address);
@@ -64,11 +75,12 @@ const IntroScreen = (props: Object) => {
               }
             }
           )}>
-            <Text style={IntroStyles.contactLink}>{intro.contact.link.address}</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </Modal>
+            <IntroStyles variant={{ contactLink: true }}>{intro.contact.link.address}</IntroStyles>
+          </ButtonStyles>*/
+          }
+        </IntroStyles>
+      </IntroStyles>
+    </div>
   );
 }
 

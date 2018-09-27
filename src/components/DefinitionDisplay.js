@@ -4,12 +4,13 @@
 import React, { Component } from 'react';
 
 // React Native
+/*
 import {
   Text,
   View,
   Image,
   TouchableOpacity } from 'react-native';
-
+*/
 // Styles
 import { DefinitionDisplayStyles } from '../styles/Styles';
 
@@ -20,19 +21,19 @@ import { DefinitionDisplayStyles } from '../styles/Styles';
     }
     if (props.currentLanguage === 'en') {
       return(
-        <View>
-          <TouchableOpacity onPress={selectVideos}>
-            <Text style={DefinitionDisplayStyles.definition}>{engDefinition.title + ' / ' + frDefinition.title}</Text>
-          </TouchableOpacity>
-        </View>
+        <div>
+          <button onPress={selectVideos}>
+            <DefinitionDisplayStyles variant={{ definition: true }}>{engDefinition.title + ' / ' + frDefinition.title}</DefinitionDisplayStyles>
+          </button>
+        </div>
       );
     } else {
       return(
-        <View>
-          <TouchableOpacity onPress={selectVideos}>
-            <Text style={DefinitionDisplayStyles.definition}>{frDefinition.title + ' / ' + engDefinition.title}</Text>
-          </TouchableOpacity>
-        </View>
+        <div>
+          <button onPress={selectVideos}>
+            <DefinitionDisplayStyles variant={{ definition: true }}>{frDefinition.title + ' / ' + engDefinition.title}</DefinitionDisplayStyles>
+          </button>
+        </div>
       );
     }
   }
