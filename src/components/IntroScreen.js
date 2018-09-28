@@ -46,11 +46,15 @@ const IntroScreen = (props: Object) => {
               {language === 'en' ? 'back' : 'retour'}
             </p>
           </ButtonStyles>
-          <p style={IntroStyles.header}>{intro.intro}</p>
+          <p class="ui header">{intro.intro}</p>
         </IntroStyles>
         <div style={IntroStyles.instructions} >
+          {console.log(intro.instructions)}
         {(intro.instructions).map((data) => {
+          <div>
           <p style={DefinitionDisplayStyles.definition}>{data}</p>
+          <p>something</p>
+          </div>
         })}
         </div>
         {/*
