@@ -99,6 +99,7 @@ class AppRoot extends Component {
   }
 
   toggleIntroScreen(): void {
+    console.log("this event fired");
     this.setState({ showIntroScreen: !this.state.showIntroScreen });
   }
 

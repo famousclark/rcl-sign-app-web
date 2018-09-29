@@ -65,10 +65,9 @@ export default class DefinitionList extends Component {
             {definitions.map((data) =>
               <DefinitionDisplay
                 engDefinition={data.eng_definition} frDefinition={data.fr_definition} currentLanguage={currentLanguage}
-                toggleModal={toggleModal}/>)}
-            {/*
-            <ListView dataSource={this.definitionData.cloneWithRows(definitions)} renderRow={(data) => <DefinitionDisplay engDefinition={data.eng_definition} frDefinition={data.fr_definition} currentLanguage={currentLanguage} toggleModal={toggleModal}/>}/>
-            */}
+                toggleModal={toggleModal}/>)
+            }
+
           </DefinitionListStyles>
         );
       }
